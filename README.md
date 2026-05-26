@@ -14,9 +14,9 @@ Delegation-scoped, pre-settlement policy enforcement for agentic wallets. Evalua
 ---
 
 ### Trust attestation
-**[@observer-protocol/wdk-protocol-trust](https://github.com/observer-protocol/wdk-protocol-trust)** — `v0.2.0-beta.1`
+**[@observer-protocol/wdk-protocol-trust](https://github.com/observer-protocol/wdk-protocol-trust)** — `v0.1.0-beta.1`
 
-Agent identity + bilateral trust handshake. Binds a WDK wallet account to a W3C `did:web` agent identity registered on Observer Protocol; ERC-8004 payment attestation is optional. Per [AIP v0.5/v0.6](https://github.com/observer-protocol/aip).
+Agent identity + bilateral trust handshake. Binds a WDK wallet account to a W3C `did:web` agent identity registered on Observer Protocol; ERC-8004 payment attestation is optional. Per [AIP v0.6](https://github.com/observer-protocol/aip).
 
 [Repository](https://github.com/observer-protocol/wdk-protocol-trust) · [Documentation](https://github.com/observer-protocol/wdk-protocol-trust#readme) · [npm](https://www.npmjs.com/package/@observer-protocol/wdk-protocol-trust)
 
