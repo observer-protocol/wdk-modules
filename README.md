@@ -5,11 +5,11 @@ Native modules for the Tether [Wallet Development Kit](https://github.com/tether
 ## Available modules
 
 ### Policy enforcement
-**[@observer-protocol/wdk-policy](https://github.com/observer-protocol/wdk-policy)** — `v0.1.0-beta.1`
+**[@observer-protocol/wdk-op-policy](https://github.com/observer-protocol/wdk-op-policy)** — `v0.1.0`
 
-Delegation-scoped, pre-settlement policy enforcement for agentic wallets. Evaluates a proposed transaction against the `tradingMandate` declared in a signed `ObserverDelegationCredential` (per [AIP v0.8](https://github.com/observer-protocol/aip/blob/main/aip-v0.8-draft-1.md)) and, optionally, requests a signed `PolicyEvaluationCredential` for the audit trail.
+Delegation-scoped, pre-signature policy enforcement for agentic wallets, via the Tether WDK transaction policy engine ([PR #55](https://github.com/tetherto/wdk/pull/55)). Registers an **ALLOW + DENY** policy pair (the DENY companion is the mandatory fail-closed backbone) that verifies a proposed write op against the `tradingMandate` in a signed `ObserverDelegationCredential` (per [AIP v0.8](https://github.com/observer-protocol/aip/blob/main/aip-v0.8-draft-1.md)) before the key signs. Verified against the published `@tetherto/wdk@1.0.0-beta.11` (26 conformance cases). A signed `PolicyEvaluationCredential` audit surface is on the roadmap.
 
-[Repository](https://github.com/observer-protocol/wdk-policy) · [Documentation](https://github.com/observer-protocol/wdk-policy#readme) · *(npm publish forthcoming)*
+[Repository](https://github.com/observer-protocol/wdk-op-policy) · [Documentation](https://github.com/observer-protocol/wdk-op-policy#readme) · [npm](https://www.npmjs.com/package/@observer-protocol/wdk-op-policy)
 
 ---
 
@@ -41,7 +41,7 @@ This repository is the discovery layer — a single place to find all current WD
 
 Each module's README is self-contained. For the protocol that ties them together, see:
 
-- [AIP v0.8 draft 1](https://github.com/observer-protocol/aip/blob/main/aip-v0.8-draft-1.md) — current spec; introduces `PolicyEvaluationCredential` and the trading-mandate extensions consumed by `wdk-policy`.
+- [AIP v0.8 draft 1](https://github.com/observer-protocol/aip/blob/main/aip-v0.8-draft-1.md) — current spec; introduces `PolicyEvaluationCredential` and the trading-mandate extensions consumed by `wdk-op-policy`.
 - [AIP v0.6 draft 1](https://github.com/observer-protocol/aip/blob/main/aip-v0.6-draft-1.md) — core protocol; the W3C VC / DID primitives consumed by all modules.
 
 ## License
@@ -50,4 +50,5 @@ All modules are licensed under Apache-2.0.
 
 ## Historical
 
-[`wdk-observer-protocol`](https://github.com/observer-protocol/wdk-observer-protocol) was the original 2026-03 hackathon submission. Its functionality has been superseded by `wdk-policy` and `wdk-protocol-trust`; the repository is retained for historical reference only.
+- [`wdk-observer-protocol`](https://github.com/observer-protocol/wdk-observer-protocol) — original 2026-03 hackathon submission. Superseded by `wdk-op-policy` and `wdk-protocol-trust`; archived, retained for reference only.
+- [`wdk-policy`](https://github.com/observer-protocol/wdk-policy) — pre-#55 policy module (local mandate evaluation + a signed-decision sidecar client). Superseded by [`wdk-op-policy`](https://github.com/observer-protocol/wdk-op-policy), which enforces through Tether's merged WDK policy engine (PR #55). Archived; retained for reference — its `PolicyEvaluationCredential` sidecar client is the reference implementation for that roadmap surface.
